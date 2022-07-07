@@ -42,22 +42,6 @@ namespace Lection_5_07_07_Library
             }
         }
 
-        private static void CheckNonNullArray(int[] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentException();
-            }
-        }
-
-        private static void CheckArrayNullOrEmpty(int[] array)
-        {
-            if (array == null || array.Length == 0)
-            {
-                throw new ArgumentException();
-            }
-        }
-
         public static void HalfReverse(int[] array)
         {
             int halfSize = array.Length / 2;
@@ -86,6 +70,22 @@ namespace Lection_5_07_07_Library
             int temp = a;
             a = b;
             b = temp;
+        }
+
+        private static void CheckNonNullArray(int[] array)
+        {
+            if (array == null)
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        private static void CheckArrayNullOrEmpty(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                throw new ArgumentException();
+            }
         }
     }
 }

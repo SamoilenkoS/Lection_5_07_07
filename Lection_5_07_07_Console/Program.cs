@@ -1,43 +1,15 @@
-﻿using Lection_5_07_07_Library;
-using System;
-using System.IO;
+﻿using System;
 
 namespace Lection_5_07_07_Console
 {
     class Program
     {
-        static void PrintArray(int[] array)
+        static void Main()
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write(array[i]+" ");
-            }
-
-            Console.WriteLine();
         }
 
         static void Test()
         {
-            int item = Convert.ToInt32(Console.ReadLine());
-        }
-
-        static void Main(string[] args)
-        {
-            Random random = new Random();
-            int[,] matrix = new int[4, 3];
-            int temp = 0;
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    matrix[i, j] = temp++;
-                }
-            }
-
-            PrintMatrix(matrix);
-
-
-            PrintMatrix(matrix);
             //int a = 10;
             //int b = 0;
             //Console.WriteLine(a / b);
@@ -91,6 +63,31 @@ namespace Lection_5_07_07_Console
             //PrintArray(array);
             //Console.WriteLine(ArrayHelper.MaxIndex(array));
             //Console.WriteLine(ArrayHelper.Max(array));
+        }
+
+        static void PrintArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        private static int[,] GenerateMatrix(int x, int y)
+        {
+            Random random = new Random();
+            int[,] matrix = new int[x, y];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = random.Next(0, x * y);
+                }
+            }
+
+            return matrix;
         }
 
         private static void PowerMatrix(int[,] matrix)
@@ -159,13 +156,6 @@ namespace Lection_5_07_07_Console
             Console.WriteLine();
         }
 
-        private static void Swap(ref int a, ref int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
-        }
-
         private static int Sum(int[,] matrix)
         {
             if(matrix == null)
@@ -183,6 +173,13 @@ namespace Lection_5_07_07_Console
             }
 
             return sum;
+        }
+
+        private static void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
         }
     }
 }
